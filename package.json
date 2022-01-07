@@ -19,6 +19,7 @@
 	},
 	"homepage": "https://github.com/andrewvallejo/tm-server#readme",
 	"dependencies": {
+		"@vercel/node": "^1.12.1",
 		"fastify": "^3.25.3",
 		"fastify-swagger": "^4.13.0",
 		"uuid": "^8.3.2"
