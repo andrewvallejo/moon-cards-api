@@ -1,0 +1,31 @@
+{
+	"name": "tm-server",
+	"version": "1.0.0",
+	"description": "The server for Thirteen Moons",
+	"type": "module",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server",
+		"dev": "nodemon server"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/andrewvallejo/tm-server.git"
+	},
+	"author": "Andrew Vallejo",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/andrewvallejo/tm-server/issues"
+	},
+	"homepage": "https://github.com/andrewvallejo/tm-server#readme",
+	"dependencies": {
+		"@vercel/node": "^1.12.1",
+		"fastify": "^3.25.3",
+		"fastify-swagger": "^4.13.0",
+		"uuid": "^8.3.2"
+	},
+	"keywords": [],
+	"devDependencies": {
+		"nodemon": "^2.0.15"
+	}
+}
