@@ -1,15 +1,13 @@
 import Fastify from 'fastify'
-import { cards } from './cards.js'
+import {cardRoutes} from './routes/cards.js'
 
 const fastify = Fastify({
 	logger: true
 })
 
-const PORT = process.env.PORT || 3000
+fastify.register(cardRoutes)
 
-fastify.get('/cards', async (request, reply) => {
-	await reply.send(cards)
-})
+const PORT = process.env.PORT || 3000
 
 fastify.listen(PORT, function (err, address){
 	if (err) {
