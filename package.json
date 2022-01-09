@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"description": "The server for Thirteen Moons",
 	"type": "module",
-	"main": "server.js",
+	"main": "./api/serverless.js",
 	"scripts": {
 		"start": "node --es-module-specifier-resolution=node ./api/serverless.js",
 		"dev": "nodemon --es-module-specifier-resolution=node ./api/serverless.js"
