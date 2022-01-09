@@ -10,7 +10,7 @@ specifiers:
 dependencies:
   '@vercel/node': 1.12.1
   fastify: 3.25.3
-  fastify-swagger: 4.13.0
+  fastify-swagger: 4.13.1
   nanoid: 3.1.30
 
 devDependencies:
@@ -425,8 +425,8 @@ packages:
       send: 0.17.2
     dev: false
 
-  /fastify-swagger/4.13.0:
-    resolution: {integrity: sha512-HQ4059nlrOaJ20opGP+9KXBtxobEgovLOov2BPsqaNkLpFyPcddoYoLeiQur4YuB53rxUE1mnGMLIPXKwvcwbg==}
+  /fastify-swagger/4.13.1:
+    resolution: {integrity: sha512-9MQ+YVo/2F9Bg2tXs5POccHau5znmHaneggjoyinqumD+n7wClu4uYwV8cNMikdr7zvoepVaYedPue1xHQwsgg==}
     dependencies:
       fastify-plugin: 3.0.0
       fastify-static: 4.5.0
