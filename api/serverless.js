@@ -1,10 +1,17 @@
 import Fastify from 'fastify'
 import fastifyCors from 'fastify-cors'
 import fastifySwagger from 'fastify-swagger'
-import {cardRoutes} from './routes/cards'
+import {cardRoutes} from '../routes/cards'
 
 const fastify = Fastify({
 	logger: true
+})
+
+fastify.register(cardRoutes)
+
+fastify.register(fastifyCors, {
+	origin: '*',
+	methods: ['GET', 'POST', 'PUT', 'DELETE']
 })
 
 fastify.register(fastifySwagger, {
@@ -17,13 +24,6 @@ fastify.register(fastifySwagger, {
 			version: '1.0.0'
 		}
 	}
-})
-
-fastify.register(cardRoutes)
-
-fastify.register(fastifyCors, {
-	origin: '*',
-	methods: ['GET', 'POST', 'PUT', 'DELETE']
 })
 
 const PORT = process.env.PORT || 3000

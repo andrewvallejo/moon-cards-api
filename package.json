@@ -5,8 +5,8 @@
 	"type": "module",
 	"main": "server.js",
 	"scripts": {
-		"start": "node --es-module-specifier-resolution=node server.js",
-		"dev": "nodemon --es-module-specifier-resolution=node server.js"
+		"start": "node --es-module-specifier-resolution=node ./api/serverless.js",
+		"dev": "nodemon --es-module-specifier-resolution=node ./api/serverless.js"
 	},
 	"repository": {
 		"type": "git",
