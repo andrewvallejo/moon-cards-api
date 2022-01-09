@@ -32,5 +32,5 @@ export const updateCard = (request, reply) => {
 export const deleteCard = (request, reply) => {
 	const index = moonCards.findIndex((c) => c.id === request.params.id)
 	moonCards.splice(index, 1)
-	reply.send(moonCards)
+	reply.send(`Card with id ${request.params.id} deleted`)
 }
