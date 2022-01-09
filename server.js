@@ -19,18 +19,20 @@ fastify.register(fastifySwagger, {
 	}
 })
 
-fastify.register(cardRoutes)
-
 fastify.register(fastifyCors, {
 	origin: '*',
 	methods: ['GET', 'POST', 'PUT', 'DELETE']
 })
 
+fastify.register(cardRoutes)
+
 const PORT = process.env.PORT || 3000
 
-fastify.listen(PORT, function (err, address){
+fastify.listen(PORT, (err, address) => {
 	if (err) {
 		fastify.log.error(err)
 		process.exit(1)
 	}
+	fastify.swagger()
+	fastify.log.info(`server listening on ${address}`)
 })
