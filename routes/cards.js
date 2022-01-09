@@ -1,4 +1,3 @@
-import fastify from 'fastify'
 import {getCards, addCard, getCard, updateCard, deleteCard} from '../controller/cardController'
 
 const card = {
@@ -31,7 +30,8 @@ const routesConfig = [
 			schema: {
 				type: 'array',
 				items: card
-			}
+			},
+			statusCode: 200
 		}
 	},
 	{
@@ -39,7 +39,8 @@ const routesConfig = [
 		path: '/cards',
 		handler: addCard,
 		response: {
-			schema: card
+			schema: card,
+			statusCode: 201
 		},
 		config: {
 			validate: {
@@ -49,10 +50,11 @@ const routesConfig = [
 	},
 	{
 		method: 'GET',
-		path: '/cards/{id}',
+		path: '/cards/:id',
 		handler: getCard,
 		response: {
-			schema: card
+			schema: card,
+			statusCode: 200
 		},
 		config: {
 			validate: {
@@ -66,7 +68,7 @@ const routesConfig = [
 	},
 	{
 		method: 'PUT',
-		path: '/cards/{id}',
+		path: '/cards/:id',
 		handler: updateCard,
 		response: {
 			schema: card
@@ -79,13 +81,18 @@ const routesConfig = [
 	},
 	{
 		method: 'DELETE',
-		path: '/cards/{id}',
+		path: '/cards/:id',
 		handler: deleteCard,
 		response: {
 			schema: {
-				type: 'array',
-				items: card
-			}
+				type: 'object',
+				properties: {
+					message: {
+						type: 'string'
+					}
+				}
+			},
+			statusCode: 200
 		},
 		config: {
 			validate: {
