@@ -21,8 +21,8 @@
 	"dependencies": {
 		"@vercel/node": "^1.12.1",
 		"fastify": "^3.25.3",
-		"fastify-swagger": "^4.13.0",
-		"uuid": "^8.3.2"
+		"fastify-cors": "^6.0.2",
+		"fastify-swagger": "^4.13.0"
 	},
 	"keywords": [],
 	"devDependencies": {
