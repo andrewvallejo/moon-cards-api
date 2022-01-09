@@ -1,4 +1,5 @@
 import Fastify from 'fastify'
+import fastifyCors from 'fastify-cors'
 import fastifySwagger from 'fastify-swagger'
 import {cardRoutes} from './routes/cards'
 
@@ -19,6 +20,11 @@ fastify.register(fastifySwagger, {
 })
 
 fastify.register(cardRoutes)
+
+fastify.register(fastifyCors, {
+	origin: '*',
+	methods: ['GET', 'POST', 'PUT', 'DELETE']
+})
 
 const PORT = process.env.PORT || 3000
 
