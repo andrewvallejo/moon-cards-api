@@ -84,14 +84,6 @@ const routesConfig = [
 		path: '/cards/:id',
 		handler: deleteCard,
 		response: {
-			schema: {
-				type: 'object',
-				properties: {
-					message: {
-						type: 'string'
-					}
-				}
-			},
 			statusCode: 200
 		},
 		config: {
