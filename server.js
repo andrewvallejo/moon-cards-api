@@ -22,7 +22,9 @@ fastify.register(fastifySwagger, {
 const PORT = process.env.PORT || 3000
 
 fastify.get('/', async (request, reply) => {
-	await reply.send('Welcome to the Thirteen Moons Official Card Game API')
+	return {
+		message: 'Welcome to the Moon Cards API'
+	}
 })
 
 fastify.get('/cards', async (request, reply) => {
