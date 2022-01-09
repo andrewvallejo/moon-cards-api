@@ -1,6 +1,5 @@
-import {getCard, getCards, postCard} from '../controller/cardController'
-
-// Card Schema
+import fastify from 'fastify'
+import {getCards, addCard, getCard, updateCard, deleteCard} from '../controller/cardController'
 
 const card = {
 	type: 'object',
@@ -17,85 +16,93 @@ const card = {
 		count: {
 			type: 'number'
 		},
-		intervals: {
+		interval: {
 			type: 'string'
 		}
 	}
 }
 
-// Schema for the cards
-const getAllCards = {
-	schema: {
+const routesConfig = [
+	{
+		method: 'GET',
+		path: '/cards',
+		handler: getCards,
 		response: {
-			200: {
+			schema: {
 				type: 'array',
-				cards: card
+				items: card
 			}
 		}
 	},
-	handler: getCards
-}
-
-const getSingleCard = {
-	schema: {
+	{
+		method: 'POST',
+		path: '/cards',
+		handler: addCard,
 		response: {
-			200: card
+			schema: card
+		},
+		config: {
+			validate: {
+				payload: card
+			}
 		}
 	},
-	handler: getCard
-}
-
-const addCard = {
-	schema: {
-		body: {
-			type: 'object',
-			required: ['talent', 'terms', 'count', 'interval'],
-			properties: {
-				talent: {
-					type: 'string'
-				},
-				terms: {
-					type: 'string'
-				},
-				count: {
-					type: 'number'
-				},
-				interval: {
-					type: 'string'
+	{
+		method: 'GET',
+		path: '/cards/{id}',
+		handler: getCard,
+		response: {
+			schema: card
+		},
+		config: {
+			validate: {
+				params: {
+					id: {
+						type: 'string'
+					}
 				}
 			}
-		},
-		response: {
-			200: card
 		}
 	},
-	handler: postCard
-}
+	{
+		method: 'PUT',
+		path: '/cards/{id}',
+		handler: updateCard,
+		response: {
+			schema: card
+		},
+		config: {
+			validate: {
+				payload: card
+			}
+		}
+	},
+	{
+		method: 'DELETE',
+		path: '/cards/{id}',
+		handler: deleteCard,
+		response: {
+			schema: {
+				type: 'array',
+				items: card
+			}
+		},
+		config: {
+			validate: {
+				params: {
+					id: {
+						type: 'string'
+					}
+				}
+			}
+		}
+	}
+]
 
-export const cardRoutes = (fastify, opts, done) => {
-	// GET /cards - returns all cards
-	fastify.get('/cards', getAllCards)
-
-	// GET /cards/:id - returns card with matching id
-	fastify.get('/cards/:id', getSingleCard)
-
-	// POST /cards - creates a new card
-	fastify.post('/cards', addCard)
-
-	// PUT /cards/:id - updates card with matching id
-	// fastify.put('/api/cards/:id', async (request, reply) => {
-	// 	const card = request.body
-	// 	const index = moonCardsfindIndex((c) => c.id === request.params.id)
-	// 	cards[index] = card
-	// 	await reply.send(card)
-	// })
-
-	// // DELETE /cards/:id - deletes card with matching id
-	// fastify.delete('/api/cards/:id', async (request, reply) => {
-	// 	const index = moonCardsfindIndex((c) => c.id === request.params.id)
-	// 	moonCardssplice(index, 1)
-	// 	await reply.send(cards)
-	// })
+export const cardRoutes = (fastify, _options, done) => {
+	routesConfig.forEach((routeConfig) => {
+		fastify.route(routeConfig)
+	})
 
 	done()
 }
