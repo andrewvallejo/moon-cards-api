@@ -5,8 +5,13 @@
 	"type": "module",
 	"main": "index.js",
 	"scripts": {
+<<<<<<< HEAD
 		"start": "node --experimental-specifier-resolution=node index.js",
 		"dev": "nodemon --experimental-specifier-resolution=node index.js"
+=======
+		"start": "node --experimental-specifier-resolution=node server.js",
+		"dev": "nodemon --experimental-specifier-resolution=node server.js"
+>>>>>>> fix/fastify-routes-pt2
 	},
 	"repository": {
 		"type": "git",
@@ -22,7 +27,8 @@
 		"@vercel/node": "^1.12.1",
 		"fastify": "^3.25.3",
 		"fastify-cors": "^6.0.2",
-		"fastify-swagger": "^4.13.0"
+		"fastify-swagger": "^4.13.0",
+		"nanoid": "^3.1.30"
 	},
 	"devDependencies": {
 		"nodemon": "^2.0.15"

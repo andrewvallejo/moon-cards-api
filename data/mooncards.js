@@ -1,4 +1,4 @@
-export const cards = [
+export const mooncards = [
 	{
 		code: 'w1',
 		talent: 'wisdom',
