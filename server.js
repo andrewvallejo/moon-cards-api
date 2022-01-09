@@ -19,12 +19,12 @@ fastify.register(fastifySwagger, {
 	}
 })
 
+fastify.register(cardRoutes)
+
 fastify.register(fastifyCors, {
 	origin: '*',
 	methods: ['GET', 'POST', 'PUT', 'DELETE']
 })
-
-fastify.register(cardRoutes)
 
 const PORT = process.env.PORT || 3000
 
