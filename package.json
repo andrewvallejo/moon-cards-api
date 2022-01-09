@@ -3,28 +3,27 @@
 	"version": "1.0.0",
 	"description": "The server for Thirteen Moons",
 	"type": "module",
-	"main": "server.js",
+	"main": "index.js",
 	"scripts": {
-		"start": "node server",
-		"dev": "nodemon server"
+		"start": "node --experimental-specifier-resolution=node index.js",
+		"dev": "nodemon --experimental-specifier-resolution=node index.js"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+ssh://git@github.com/andrewvallejo/tm-server.git"
+		"url": "git+ssh://git@github.com/andrewvallejo/moon-cards-api.git"
 	},
 	"author": "Andrew Vallejo",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/andrewvallejo/tm-server/issues"
+		"url": "https://github.com/andrewvallejo/moon-cards-api/issues"
 	},
-	"homepage": "https://github.com/andrewvallejo/tm-server#readme",
+	"homepage": "https://github.com/andrewvallejo/moon-cards-api/#readme",
 	"dependencies": {
 		"@vercel/node": "^1.12.1",
 		"fastify": "^3.25.3",
 		"fastify-cors": "^6.0.2",
 		"fastify-swagger": "^4.13.0"
 	},
-	"keywords": [],
 	"devDependencies": {
 		"nodemon": "^2.0.15"
 	}

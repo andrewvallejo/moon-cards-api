@@ -1,7 +1,7 @@
 import Fastify from 'fastify'
 import fastifyCors from 'fastify-cors'
 import fastifySwagger from 'fastify-swagger'
-import {cards} from './cards.js'
+import {cardRoutes} from './routes/cards'
 
 const fastify = Fastify({
 	logger: true
@@ -19,22 +19,14 @@ fastify.register(fastifySwagger, {
 	}
 })
 
-const PORT = process.env.PORT || 3000
-
-fastify.get('/', async (request, reply) => {
-	return {
-		message: 'Welcome to the Moon Cards API'
-	}
-})
-
-fastify.get('/cards', async (request, reply) => {
-	await reply.send(cards)
-})
+fastify.register(cardRoutes)
 
 fastify.register(fastifyCors, {
 	origin: '*',
 	methods: ['GET', 'POST', 'PUT', 'DELETE']
 })
+
+const PORT = process.env.PORT || 3000
 
 fastify.listen(PORT, function (err, address){
 	if (err) {
