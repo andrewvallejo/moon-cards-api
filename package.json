@@ -3,10 +3,10 @@
 	"version": "1.0.0",
 	"description": "The server for Thirteen Moons",
 	"type": "module",
-	"main": "server.js",
+	"main": "./api/serverless.js",
 	"scripts": {
-		"start": "node server",
-		"dev": "nodemon server"
+		"start": "node --es-module-specifier-resolution=node ./api/serverless.js",
+		"dev": "nodemon --es-module-specifier-resolution=node ./api/serverless.js"
 	},
 	"repository": {
 		"type": "git",
@@ -21,8 +21,9 @@
 	"dependencies": {
 		"@vercel/node": "^1.12.1",
 		"fastify": "^3.25.3",
+		"fastify-cors": "^6.0.2",
 		"fastify-swagger": "^4.13.0",
-		"uuid": "^8.3.2"
+		"nanoid": "^3.1.30"
 	},
 	"keywords": [],
 	"devDependencies": {
