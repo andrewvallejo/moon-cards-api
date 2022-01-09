@@ -1,4 +1,4 @@
-export const moonData = [
+export const moonCards = [
 	{
 		id: 'w1',
 		talent: 'wisdom',
