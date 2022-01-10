@@ -1,4 +1,4 @@
-export const mooncards = [
+const mooncards = [
 	{
 		code: 'w1',
 		talent: 'wisdom',
@@ -364,3 +364,5 @@ export const mooncards = [
 		intervals: 'minutes'
 	}
 ]
+
+module.exports = mooncards

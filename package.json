@@ -2,11 +2,10 @@
 	"name": "tm-server",
 	"version": "1.0.0",
 	"description": "The server for Thirteen Moons",
-	"type": "module",
 	"main": "server.js",
 	"scripts": {
-		"start": "node --experimental-specifier-resolution=node server.js",
-		"dev": "nodemon --experimental-specifier-resolution=node server.js"
+		"start": "node  server.js",
+		"dev": "nodemon  server.js"
 	},
 	"repository": {
 		"type": "git",

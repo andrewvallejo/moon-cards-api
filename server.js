@@ -1,7 +1,7 @@
-import Fastify from 'fastify'
-import fastifyCors from 'fastify-cors'
-import fastifySwagger from 'fastify-swagger'
-import {mooncards} from './data/mooncards'
+const Fastify = require('fastify')
+const mooncards = require('./data/mooncards')
+const fastifySwagger = require('fastify-swagger')
+const fastifyCors = require('fastify-cors')
 
 const fastify = Fastify({
 	logger: true
