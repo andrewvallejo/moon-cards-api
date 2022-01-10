@@ -29,7 +29,7 @@ const routesConfig = [
 		response: {
 			schema: {
 				type: 'array',
-				items: card
+				cards: card
 			},
 			statusCode: 200
 		}
