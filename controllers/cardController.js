@@ -1,36 +1,44 @@
-import {mooncards} from '../data/mooncards'
-import {nanoid} from 'nanoid'
+const mooncards = require('../data/mooncards.js')
+const nanoid = require('nanoid')
 
-export const getCard = (request, reply) => {
+const getCard = async (request, reply) => {
 	const {id} = request.params
 	const card = mooncards.find((card) => card.id === id)
 	if (card) {
-		reply.send(card)
+		await reply.send(card)
 	} else {
-		reply.code(404).send()
+		await reply.code(404).send()
 	}
 }
 
-export const getCards = (request, reply) => {
-	reply.send(mooncards)
+const getCards = async (request, reply) => {
+	await reply.send(mooncards)
 }
 
-export const addCard = (request, reply) => {
+const addCard = async (request, reply) => {
 	const card = request.body
 	card.id = nanoid()
 	mooncards.push(card)
-	reply.send(card)
+	await reply.send(card)
 }
 
-export const updateCard = (request, reply) => {
+const updateCard = async (request, reply) => {
 	const card = request.body
 	const index = mooncards.findIndex((c) => c.id === request.params.id)
 	mooncards[index] = card
-	reply.send(card)
+	await reply.send(card)
 }
 
-export const deleteCard = (request, reply) => {
+const deleteCard = async (request, reply) => {
 	const index = mooncards.findIndex((c) => c.id === request.params.id)
 	mooncards.splice(index, 1)
-	reply.send(`Card with id ${request.params.id} deleted`)
+	await reply.send(`Card with id ${request.params.id} deleted`)
+}
+
+module.exports = {
+	getCard,
+	getCards,
+	addCard,
+	updateCard,
+	deleteCard
 }

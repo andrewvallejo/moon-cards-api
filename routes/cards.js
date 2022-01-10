@@ -1,4 +1,4 @@
-import {getCards, addCard, getCard, updateCard, deleteCard} from '../controllers/cardController'
+const {getCard, getCards, addCard, updateCard, deleteCard} = require('../controllers/cardController')
 
 const card = {
 	type: 'object',
@@ -98,10 +98,12 @@ const routesConfig = [
 	}
 ]
 
-export const cardRoutes = (fastify, _options, done) => {
+const cardRoutes = (fastify, _options, done) => {
 	routesConfig.forEach((routeConfig) => {
 		fastify.route(routeConfig)
 	})
 
 	done()
 }
+
+module.exports = cardRoutes

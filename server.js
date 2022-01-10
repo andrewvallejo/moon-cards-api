@@ -1,5 +1,4 @@
 const Fastify = require('fastify')
-const mooncards = require('./data/mooncards')
 const fastifySwagger = require('fastify-swagger')
 const fastifyCors = require('fastify-cors')
 
@@ -21,15 +20,7 @@ fastify.register(fastifySwagger, {
 
 const PORT = process.env.PORT || 3000
 
-fastify.get('/', async (request, reply) => {
-	return {
-		message: 'Welcome to the Moon Cards API'
-	}
-})
-
-fastify.get('/cards', async (request, reply) => {
-	await reply.send(mooncards)
-})
+fastify.register(require('./routes/cards'))
 
 fastify.register(fastifyCors, {
 	origin: '*',
