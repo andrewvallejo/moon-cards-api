@@ -1,3 +1,19 @@
+const covers = [
+	'https://imgur.com/HVVfDWb',
+	'https://imgur.com/1m047Q8',
+	'https://imgur.com/84c1OKZ',
+	'https://imgur.com/j3wD6tE',
+	'https://imgur.com/NwfirSu',
+	'https://imgur.com/UljJWKK',
+	'https://imgur.com/698xTgt',
+	'https://imgur.com/yb4R8Zu',
+	'https://imgur.com/n9gDD15',
+	'https://imgur.com/nbgDL0g',
+	'https://imgur.com/nbgDL0g'
+]
+
+const getCover = () => covers[Math.floor(Math.random() * covers.length)]
+
 const mooncards = [
 	{
 		id: 'w1',
