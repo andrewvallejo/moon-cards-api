@@ -21,6 +21,7 @@ fastify.register(fastifySwagger, {
 const PORT = process.env.PORT || 3000
 
 fastify.register(require('./routes/cards'))
+fastify.register(require('./routes/landing'))
 
 fastify.register(fastifyCors, {
 	origin: '*',
