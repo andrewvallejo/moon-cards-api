@@ -1,38 +1,32 @@
-const mooncards = require('../data/mooncards.js')
-const nanoid = require('nanoid')
+const mooncards = require('../data/mooncards')
 
-const getCard = async (request, reply) => {
-	const {id} = request.params
-	const card = mooncards.find((card) => card.id === id)
-	if (card) {
-		await reply.send(card)
-	} else {
-		await reply.code(404).send()
-	}
+const getCard = (request, reply) => {
+	const card = mooncards.find((c) => c.id === request.params.id)
+	reply.send(card)
 }
 
-const getCards = async (request, reply) => {
-	await reply.send(mooncards)
+const getCards = (request, reply) => {
+	reply.send(mooncards)
 }
 
-const addCard = async (request, reply) => {
+const addCard = (request, reply) => {
 	const card = request.body
-	card.id = nanoid()
+	card.id = mooncards.length + 1
 	mooncards.push(card)
-	await reply.send(card)
+	reply.send(card)
 }
 
-const updateCard = async (request, reply) => {
+const updateCard = (request, reply) => {
 	const card = request.body
 	const index = mooncards.findIndex((c) => c.id === request.params.id)
 	mooncards[index] = card
-	await reply.send(card)
+	reply.send(card)
 }
 
-const deleteCard = async (request, reply) => {
+const deleteCard = (request, reply) => {
 	const index = mooncards.findIndex((c) => c.id === request.params.id)
 	mooncards.splice(index, 1)
-	await reply.send(`Card with id ${request.params.id} deleted`)
+	reply.send(`Card with id ${request.params.id} deleted`)
 }
 
 module.exports = {
