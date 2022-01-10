@@ -1,7 +1,7 @@
 import Fastify from 'fastify'
 import fastifyCors from 'fastify-cors'
 import fastifySwagger from 'fastify-swagger'
-import {cardRoutes} from './routes/cards'
+import {cardRoutes} from '../routes/cards'
 
 const fastify = Fastify({
 	logger: true
